@@ -1,0 +1,168 @@
+.hero-container {
+    height: 440px;
+    position: relative;
+
+    @include for-normal-layout {
+        height: 680px;
+    }
+
+    .hero-backgrounds {
+        height: 100%;
+        position: relative;
+
+        .hero-background {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #023a15;
+
+
+            @include for-normal-layout {
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                opacity: 0;
+                animation: fade 2s linear;
+                transition: opacity .9s;
+
+                &.active {
+                    opacity: 1;
+                }
+
+                &.hero-1 {
+                    background-image: url('../../imgs/hero/background1.jpg');
+                }
+
+                &.hero-2 {
+                    background-image: url('../../imgs/hero/background2.jpg');
+                }
+
+                &.hero-3 {
+                    background-image: url('../../imgs/hero/background3.jpg');
+                }
+
+                &.hero-4 {
+                    background-image: url('../../imgs/hero/background4.jpg');
+                }
+            }
+        }
+    }
+
+    .hero-content {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .hero-header {
+            width: 100%;
+            padding: 48px 32px;
+            margin-top: 20px;
+
+            @include for-narrow-layout {
+                padding: 96px 64px;
+            }
+
+            @include for-normal-layout {
+                max-width: 560px;
+                padding: 0;
+            }
+
+            @include for-wide-layout {
+                max-width: 650px;
+                padding: 0;
+            }
+
+            h3 {
+                font-size: 32px;
+                line-height: 48px;
+                color: white;
+                font-weight: 600;
+                padding-bottom: 24px;
+
+                @include for-narrow-layout {
+                    font-size: 40px;
+                }
+
+                @include for-wide-layout {
+                    font-size: 48px;
+                }
+
+                span {
+                    font-family: serif;
+                    font-style: italic;
+                }
+            }
+
+            .input-container {
+                flex-direction: column;
+                gap: 10px;
+
+                @include for-normal-layout {
+                    flex-direction: row;
+                    gap: 0;
+                }
+
+                .input-wrapper {
+                    span {
+                        height: 48px;
+                        padding-left: 10px;
+                    }
+
+                    input {
+                        height: 48px;
+                        padding-left: 44px;
+                        border-radius: 4px;
+
+                        @include for-normal-layout {
+                            border-radius: 4px 0 0 4px;
+                        }
+                    }
+                    input::placeholder {
+                       
+                    }
+                }
+
+                button {
+                    padding: 15px 0;
+                    border-radius: 4px;
+                    background-color: rgb(29, 191, 115);
+
+                    @include for-normal-layout {
+                        border-radius: 0 4px 4px 0;
+                    }
+                }
+            }
+
+            .popular {
+                display: none;
+
+                @include for-normal-layout {
+                    display: flex;
+                    padding-top: 24px;
+                    gap: 8px;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+
+                li {
+                    margin-right: 12px;
+                    border: 1px solid white;
+                    color: white;
+                    border-radius: 25px;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    transition: all .2s;
+
+                    &:hover {
+                        background-color: white;
+                        color: $clr2;
+                    }
+                }
+            }
+        }
+    }
+}

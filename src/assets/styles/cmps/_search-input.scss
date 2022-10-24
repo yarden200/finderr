@@ -1,0 +1,35 @@
+.input-container {
+    position: relative;
+    width: 100%;
+
+    .input-wrapper {
+        flex: 1;
+
+        span {
+            position: absolute;
+            color: rgb(116, 118, 126);
+        }
+
+        input {
+            height: 100%;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #6d6f74;
+        }
+
+        input::placeholder {
+            color: #95979d;
+        }
+    }
+
+    button {
+
+        flex: 0.2;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Helvetica, sans-serif;
+        border-radius: 0 4px 4px 0;
+    }
+}

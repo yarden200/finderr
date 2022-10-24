@@ -1,0 +1,98 @@
+.gig-preview {
+    border: 1px solid #e4e5e7;
+    min-width: 265px;
+
+    &:hover {
+        h3 {
+            color: $clr1
+        }
+    }
+
+    .gig-img {
+        @include aspect-ratio(16, 9);
+    }
+
+    .seller-info {
+        gap: 10px;
+        padding: 12px 12px 8px;
+
+        .seller-img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .seller-details {
+            .seller-name {
+                font-weight: bold;
+            }
+
+            .seller-level {
+                color: rgb(116, 118, 126);
+            }
+        }
+    }
+
+    h3 {
+        font-size: 16px;
+        cursor: pointer;
+        color: #222325;
+        line-height: 22px;
+        font-weight: 400;
+        height: 43px;
+        overflow: hidden;
+        padding: 0 12px 5px;
+        margin-top: 5px;
+        word-wrap: break-word;
+        word-break: break-word;
+        transition: all .3s;
+
+
+    }
+
+    .content-info {
+        padding: 10px 12px;
+
+        svg {
+            margin-right: 5px;
+            color: #ffbe5b;
+            margin-bottom: 2px;
+        }
+
+        .rate {
+            color: #ffbe5b;
+        }
+
+        .rate-count {
+            color: #b5b6ba;
+            margin-left: 3px;
+
+
+        }
+    }
+
+    footer {
+        padding: 10px 12px;
+        border-top: 1px solid #efeff0;
+
+        .starting-at {
+            color: #74767e;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            padding: 2px 0 0;
+        }
+
+        .price {
+            font-size: 18px;
+            line-height: 20px;
+            color: #404145;
+            text-align: right;
+        }
+    }
+
+
+
+
+
+}

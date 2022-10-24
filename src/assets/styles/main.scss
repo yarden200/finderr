@@ -1,0 +1,22 @@
+// Setup
+@import "setup/variables";
+@import "setup/mixins";
+@import "setup/typography";
+
+//basics
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/base";
+
+//views
+@import "views/home-page";
+@import "views/explore-page";
+
+//cmps
+@import "cmps/app-header";
+@import "cmps/hero";
+@import "cmps/search-input";
+@import "cmps/trusted-bar";
+@import "cmps/gig-preview";
+@import "cmps/gig-list";
+@import "cmps/home-carousel";
