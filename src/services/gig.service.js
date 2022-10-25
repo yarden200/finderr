@@ -9,7 +9,7 @@ export const gigService = {
     remove
 }
 
-function query() {
+function query(filterBy) {
     return storageService.query(STORAGE_KEY)
 }
 

@@ -1,7 +1,7 @@
 Fiverr clone project.
 the project is still on progress 
 
- built with react hooks, redux and sass
+ built with react hooks, redux, sass and MUI
 
 
 

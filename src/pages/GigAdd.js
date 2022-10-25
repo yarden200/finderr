@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router"
 
@@ -27,7 +26,6 @@ export const GigAdd = () => {
 
 
     useEffect(() => {
-        console.log('edit', gigId);
         if (gigId) {
             loadGig()
             setGigToAdd(gig)
@@ -38,8 +36,6 @@ export const GigAdd = () => {
         dispatch(getGigById(gigId))
     }
 
-
-
     const onChange = (ev) => {
         const field = ev.target.name;
         const value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value;
@@ -48,10 +44,8 @@ export const GigAdd = () => {
 
     const onPublishGig = (ev) => {
         ev.preventDefault()
-        console.log('publishing:', gigToAdd);
         if (gigToAdd._id) {
-            console.log('hello');
-            dispatch(onEditGig)
+            dispatch(onEditGig(gigToAdd))
         } else {
             dispatch(onAddGig(gigToAdd))
         }
@@ -128,5 +122,4 @@ export const GigAdd = () => {
             </form>
         </div>
     )
-
 }
