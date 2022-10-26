@@ -1,8 +1,7 @@
 import { gigService } from '../../services/gig.service'
 
-export function loadGigs() {
+export function loadGigs(filterBy) {
     return async (dispatch, getState) => {
-        const { filterBy } = getState().gigModule
         try {
             const gigs = await gigService.query(filterBy)
             dispatch({ type: 'SET_GIGS', gigs })

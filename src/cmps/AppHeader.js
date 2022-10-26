@@ -22,10 +22,10 @@ export const AppHeader = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', onScroll, { passive: true })
+        return (() => { window.removeEventListener('scroll', onScroll) })
     }, [])
 
     useEffect(() => {
-        // console.log('pathname', location.pathname);
         if (location.pathname === '/') {
             setIsHome(true)
         } else {
@@ -36,6 +36,7 @@ export const AppHeader = () => {
     const onScroll = () => {
         const pos = window.pageYOffset
         if (pos === 0) {
+            setIsCategoriesOpen(false)
             setIsHeaderScrolled(false)
         } else if (pos > 0 && pos < 135) {
             setIsHeaderScrolled(true)
@@ -46,10 +47,6 @@ export const AppHeader = () => {
         }
     }
 
-    // componentWillUnmount() {
-    //     window.removeEventListener('scroll', this.onScroll)
-    // }
-
     const onCloseModal = () => {
         setIsModalOpen(false)
     }
@@ -57,7 +54,6 @@ export const AppHeader = () => {
     const onOpenModal = () => {
         setIsModalOpen(true)
     }
-
 
     return (
         <>

@@ -9,8 +9,19 @@ export const gigService = {
     remove
 }
 
-function query(filterBy) {
-    return storageService.query(STORAGE_KEY)
+async function query(filterBy) {
+    let gigsToShow = await storageService.query(STORAGE_KEY)
+    // console.log('service filterBy:', filterBy);
+    if (filterBy) {
+        var { query } = filterBy
+        if (query) {
+            gigsToShow = gigsToShow.filter(gig => {
+                console.log(gig.title.includes(query));
+                return gig.title.includes(query)
+            })
+        }
+    }
+    return gigsToShow
 }
 
 function getById(gigId) {

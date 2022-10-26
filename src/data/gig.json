@@ -122,5 +122,36 @@
             "AvResponseTime": "1 Hour",
             "sellerLevel": 2
         }
+    },
+    {
+        "_id": "g144",
+        "topic": "Design",
+        "title": "I will design a logo for you",
+        "price": 70,
+        "deliveryTime": 5,
+        "description": "Design profesional logos",
+        "rate": 5.0,
+        "rateCount": "55",
+        "reviews": [
+            "What a product I'll use it over and over again!",
+            "Could have been better",
+            "Amazing seller!"
+        ],
+        "imgUrls": "assets/imgs/gigs/gig1.webp",
+        "tags": [
+            "React",
+            "Node.js",
+            "Redux"
+        ],
+        "seller": {
+            "_id": "u101",
+            "fullname": "Michael Jordan",
+            "imgUrl": "url",
+            "sellerLine": "Professional Copywriter Delivering Excellence",
+            "from": "India",
+            "MemberSince": "Feb 2020",
+            "AvResponseTime": "1 Hour",
+            "sellerLevel": 2
+        }
     }
 ]

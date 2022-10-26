@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router'
 
 import { GigList } from '../cmps/GigList'
 import { loadGigs } from '../store/actions/gigAction'
 
-export const ExplorePage = (props) => {
+const queryString = require('query-string')
 
-
-    // const { search } = useLocation()
-    // console.log(search);
+export const ExplorePage = () => {
+    const parsed = queryString.parse(useLocation().search)
 
     const { gigs } = useSelector(state => state.gigModule)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(loadGigs());
+        console.log(parsed);
+        dispatch(loadGigs(parsed));
     }, [])
 
     return (
