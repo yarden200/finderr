@@ -57,9 +57,8 @@ export const AppHeader = () => {
 
     return (
         <>
-            <header
-                className={`app-header ${isHome ? 'is-home' : 'header-scrolled'}
-             ${isHeaderScrolled ? 'header-scrolled' : ''}`}
+            <header className={`app-header ${isHome && 'is-home'}
+                    ${isHeaderScrolled && 'header-scrolled'}`}
             >
                 <Modal
                     open={isModalOpen}
@@ -115,13 +114,12 @@ export const AppHeader = () => {
                     </div>
                 </div>
             </header >
-            <div
-                className={`categories-container main-container 
+            <div className={`categories-container main-container 
+             ${isHome ? 'is-home' : ''}
              ${isCategoriesOpen && isHome && 'show-categories'} 
              ${!isHome && 'show-categories'}
              ${!isHome && isHeaderScrolled && 'relative'}
              `}
-
             >
                 <ul className='categories flex align-center'>
                     <li>Graphics & Design</li>

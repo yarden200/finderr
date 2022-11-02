@@ -5,10 +5,109 @@
         position: sticky;
         top: 0;
         z-index: 5;
-    }
 
-    @include for-narrow-layout {
-        background-color: unset;
+        @include for-narrow-layout {
+            background-color: unset;
+        }
+
+        .top-header {
+            .modal-btn {
+                @include for-narrow-layout {
+                    color: #fff;
+                }
+            }
+
+            .logo {
+                margin-left: 15px;
+
+                @include for-narrow-layout {
+                    flex: 1;
+                }
+
+                h2 {
+                    @include for-narrow-layout {
+                        color: #fff;
+                    }
+                }
+            }
+
+            .nav {
+                @include for-narrow-layout {
+                    color: #fff;
+                }
+
+                li {
+                    >* {
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+
+                .join-btn {
+                    p {
+                        color: #555555;
+
+                        &:hover {
+                            border-color: $clr1;
+                        }
+
+                        @include for-narrow-layout {
+                            color: #fff;
+                            border-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.header-scrolled {
+            background-color: #fff;
+
+            .top-header {
+                color: $clr2;
+
+                .modal-btn {
+                    color: #555555;
+                }
+
+                .logo {
+                    h2 {
+                        color: $clr2;
+                    }
+                }
+
+                .nav {
+                    color: #62646a;
+
+                    ul {
+                        li {
+                            >* {
+                                &:hover {
+                                    color: $clr1;
+                                }
+                            }
+                        }
+
+                        .join-btn {
+                            p {
+                                color: #62646a;
+
+                                @include for-narrow-layout {
+                                    color: rgb(25, 164, 99);
+                                    border: 1px solid rgb(25, 164, 99);
+                                    &:hover{
+                                        color: #fff;
+                                        background-color: green;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
     }
 
     .top-header {
@@ -17,12 +116,9 @@
         width: 100%;
         justify-content: space-between;
 
-        @include for-narrow-layout {
-            color: white;
-            justify-content: unset;
-        }
-
         .modal-btn {
+            color: #555555;
+
             @include for-wide-layout {
                 display: none;
             }
@@ -37,10 +133,6 @@
                 margin-left: 0;
             }
 
-            // @include for-narrow-layout {
-            //     color: white;
-            // }
-
             h2 {
                 font-family: Helvetica, sans-serif;
                 font-size: 30px;
@@ -48,9 +140,9 @@
                 letter-spacing: -2px;
                 color: #393939;
 
-                @include for-narrow-layout {
-                    color: white;
-                }
+                // @include for-narrow-layout {
+                //     color: white;
+                // }
             }
 
             span {
@@ -102,119 +194,95 @@
 
         .nav {
             font-weight: 600;
-            justify-content: flex-end;
             margin-left: 32px;
-
-            @include for-narrow-layout {
-                flex: 1;
-            }
+            justify-content: flex-end;
 
             ul {
-                >* {
+                li {
                     padding: 5px 17px;
-                }
-            }
 
-            // @include for-mobile-layout {
-            //     div:last-child {
-            //         padding-right: 0;
-            //     }
-            // }
+                    >* {
+                        cursor: pointer;
 
-            p {
-                cursor: pointer;
-            }
-
-            .nal {
-                display: none;
-
-                @include for-narrow-layout {
-                    display: inline-block;
-                }
-            }
-
-            .nol {
-                display: none;
-
-                @include for-normal-layout {
-                    display: inline-block;
-                }
-            }
-
-            .join-btn {
-                border: 1px solid white;
-                border-radius: 4px;
-                cursor: pointer;
-
-                &:hover {
-                    opacity: .5;
-                }
-
-                transition: all .2s ease;
-
-                @include for-narrow-layout {
-                    &:hover {
-                        background-color: $clr1;
-                        border-color: $clr1;
-                        opacity: 1;
+                        &:hover {
+                            color: $clr1;
+                        }
                     }
                 }
-            }
-        }
 
-    }
+                .nal {
+                    display: none;
 
-    &.header-scrolled {
-        background-color: #fff;
-
-        .top-header {
-            color: $clr2;
-
-            .logo {
-                h2 {
-                    color: $clr2;
-
+                    @include for-narrow-layout {
+                        display: inline-block;
+                    }
                 }
-            }
 
-            .join-btn {
-                color: rgb(25, 164, 99);
-                border: 1px solid rgb(25, 164, 99);
+                .nol {
+                    display: none;
 
-                &:hover {
-                    background-color: $clr1;
-                    color: #fff;
+                    @include for-normal-layout {
+                        display: inline-block;
+                    }
+                }
+
+                .join-btn {
+                    p {
+                        cursor: pointer;
+                        padding: 5px 17px;
+                        border-radius: 4px;
+
+                        &:hover {
+                            color: #95979d;
+                        }
+                    }
+
+                    @include for-narrow-layout {
+                        p {
+                            color: rgb(25, 164, 99);
+                            border: 1px solid rgb(25, 164, 99);
+
+
+
+                            &:hover {
+                                background-color: $clr1;
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    transition: all .2s ease;
                 }
             }
         }
     }
 
     transition: all .3s ease-in;
-
 }
 
 .categories-container {
     height: 40px;
-    position: fixed;
     z-index: 1;
     width: 100%;
     background-color: #fff;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
-    opacity: 0;
-    transform: rotateX(90deg);
-    visibility: hidden;
+
+    &.is-home {
+        position: fixed;
+        transform: rotateX(90deg);
+        visibility: hidden;
+
+        @include for-narrow-layout {
+            visibility: unset;
+        }
+    }
 
     &.relative {
         position: relative;
     }
 
-    @include for-narrow-layout {
-        visibility: unset;
-    }
-
     &.show-categories {
-        opacity: 1;
         transform: rotateX(0deg);
     }
 
