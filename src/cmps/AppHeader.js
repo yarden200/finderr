@@ -62,7 +62,6 @@ export const AppHeader = () => {
             >
                 <Modal
                     open={isModalOpen}
-                    // open={true}
                     onClose={onCloseModal}
                 >
                     <div style={styles.modal}>
@@ -118,8 +117,7 @@ export const AppHeader = () => {
              ${isHome ? 'is-home' : ''}
              ${isCategoriesOpen && isHome && 'show-categories'} 
              ${!isHome && 'show-categories'}
-             ${!isHome && isHeaderScrolled && 'relative'}
-             `}
+             ${!isHome && isHeaderScrolled && 'relative'} `}
             >
                 <ul className='categories flex align-center'>
                     <li>Graphics & Design</li>
@@ -128,6 +126,7 @@ export const AppHeader = () => {
                     <li>Video & Animation</li>
                     <li>Music & Audio</li>
                 </ul>
+                <div className='try'></div>
             </div>
         </>
     )

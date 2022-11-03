@@ -96,7 +96,8 @@
                                 @include for-narrow-layout {
                                     color: rgb(25, 164, 99);
                                     border: 1px solid rgb(25, 164, 99);
-                                    &:hover{
+
+                                    &:hover {
                                         color: #fff;
                                         background-color: green;
                                     }
@@ -267,15 +268,15 @@
     background-color: #fff;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
+    visibility: hidden;
+
+    @include for-narrow-layout {
+        visibility: unset;
+    }
 
     &.is-home {
         position: fixed;
         transform: rotateX(90deg);
-        visibility: hidden;
-
-        @include for-narrow-layout {
-            visibility: unset;
-        }
     }
 
     &.relative {
@@ -288,10 +289,20 @@
 
     .categories {
         color: $clr2;
+        white-space: nowrap;
 
         li:not(:first-child) {
             margin-left: 10px;
         }
+    }
+
+    .try {
+        width: 25px;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     transition: all .2s ease;
