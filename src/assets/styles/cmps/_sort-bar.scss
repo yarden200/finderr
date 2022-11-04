@@ -1,0 +1,44 @@
+.sort-bar {
+    background-color: lightcyan;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    .sort-bar-menu {
+        position: relative;
+        border: 1px solid gray;
+        padding: 0 6px;
+        width: fit-content;
+
+        .menu-title {}
+
+        .menu-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+            z-index: 2;
+            background-color: #fff;
+            border: 1px solid gray;
+
+            .budget-filter {
+                padding: 12px 24px;
+                gap: 25px;
+
+                input {
+                    outline: 1px solid grey;
+                    height: 36px;
+                    width: 120px;
+                }
+            }
+
+            .btns-row {
+                border-top: 1px solid gray;
+                padding: 16px 24px;
+            }
+        }
+    }
+
+    .arrow-container {
+        margin-top: 5px;
+    }
+}

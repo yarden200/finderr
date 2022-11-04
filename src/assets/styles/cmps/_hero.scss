@@ -45,6 +45,17 @@
                 &.hero-4 {
                     background-image: url('../../imgs/hero/background4.jpg');
                 }
+
+                .seller-name{
+                    height: 100%;
+                    align-items: flex-end;
+                    p{
+                        justify-content: flex-end;
+                        padding-bottom: 32px;
+                        color: #fff;
+                        white-space: pre;
+                    }
+                }
             }
         }
     }
@@ -120,9 +131,7 @@
                             border-radius: 4px 0 0 4px;
                         }
                     }
-                    input::placeholder {
-                       
-                    }
+                    
                 }
 
                 button {

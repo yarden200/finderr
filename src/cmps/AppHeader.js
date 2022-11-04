@@ -79,7 +79,7 @@ export const AppHeader = () => {
                                     <ul>
                                         {categories.map(category => {
                                             return (
-                                                <li key={category}>{category}</li>
+                                                <li style={styles.categoriesLi} key={category}>{category}</li>
                                             )
                                         })}
                                     </ul>
@@ -152,4 +152,7 @@ const styles = {
     modalSelectInner: {
         padding: 0, paddingRight: 15, color: '#95979d'
     },
+    categoriesLi: {
+        padding: '5px 0'
+    }
 }
