@@ -25,7 +25,6 @@ export function onAddGig(gig) {
 export function onEditGig(gig) {
     return async dispatch => {
         try {
-            console.log('edit gig action:', gig);
             await gigService.save(gig)
             dispatch({ type: 'UPDATE_GIG', gig })
         } catch (err) {
@@ -37,7 +36,6 @@ export function onEditGig(gig) {
 export function getGigById(gigId) {
     return async dispatch => {
         try {
-
             const gig = await gigService.getById(gigId)
             dispatch({ type: 'SET_GIG', gig })
         } catch (err) {
@@ -56,13 +54,6 @@ export function removeGig(gigId) {
         }
     }
 }
-
-// export function tryRobot(robotId) {
-//   return async dispatch => {
-//     const robot = await robotService.tryRobot(robotId)
-//     dispatch({ type: 'UPDATE_ROBOT', robot })
-//   }
-// }
 
 
 // export function setFilterBy(filterBy) {

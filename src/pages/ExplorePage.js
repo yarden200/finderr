@@ -9,20 +9,23 @@ import { loadGigs } from '../store/actions/gigAction'
 const queryString = require('query-string')
 
 export const ExplorePage = () => {
-    const parsed = queryString.parse(useLocation().search)
+    const location = useLocation()
+    const parsed = queryString.parse(location.search)
 
     const { gigs } = useSelector(state => state.gigModule)
     const dispatch = useDispatch()
 
     useEffect(() => {
+        console.log('use effect run', parsed);
         dispatch(loadGigs(parsed));
-    }, [])
+    }, [location])
 
     return (
         <div className='explore-page'>
             <section className='main-container'>
-                <SortBar/>
+                <SortBar />
                 <GigList gigs={gigs} />
+                <div style={{ height: 400, background: 'red' }}>DEVELOMPNET</div>
             </section>
         </div>
     )

@@ -30,18 +30,11 @@ export function gigReducer(state = INITIAL_STATE, action) {
         ...state,
         gigs: state.gigs.map(gig => (gig._id === action.gig._id) ? action.gig : gig)
       }
-    // case 'SET_FILTER_BY':
-    //   return {
-    //     ...state,
-    //     filterBy: action.filterBy
-    //   }
-    // case 'UPDATE_ROBOT':
-    //   const currRobot = state.currRobot._id === action.robot._id ? action.robot : state.currRobot
-    //   return {
-    //     ...state,
-    //     robots: state.robots && state.robots.map(robot => robot._id === action.robot._id ? action.robot : robot),
-    //     currRobot
-    //   }
+    case 'SET_FILTER_BY':
+      return {
+        ...state,
+        filterBy: action.filterBy
+      }
     default:
       return state
   }

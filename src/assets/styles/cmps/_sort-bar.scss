@@ -1,15 +1,30 @@
 .sort-bar {
-    background-color: lightcyan;
+    background-color: #fff;
     margin-bottom: 20px;
     margin-top: 20px;
+    z-index: 1;
+    height: 70px;
+
+    &.is-sticky {
+        position: sticky;
+        top: 0;
+    }
+
+    &.box-shadow {
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 0.266px 1.13052px 0px,
+            rgba(0, 0, 0, 0.1) 0px 0.89345px 3.79717px 0px,
+            rgba(0, 0, 0, 0.17) 0px 5px 17px 0px;
+    }
+
 
     .sort-bar-menu {
         position: relative;
-        border: 1px solid gray;
+        border: 1px solid #dadbdd;
+        border-radius: 4px;
         padding: 0 6px;
         width: fit-content;
-
-        .menu-title {}
+        color: rgb(34, 35, 37);
+        cursor: pointer;
 
         .menu-content {
             position: absolute;
@@ -18,22 +33,79 @@
             margin-top: 8px;
             z-index: 2;
             background-color: #fff;
-            border: 1px solid gray;
+            border: 1px solid #dadbdd;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            cursor: auto;
+            color: #62646a;
+
+            &.active {
+                opacity: 1;
+                visibility: unset;
+            }
 
             .budget-filter {
                 padding: 12px 24px;
                 gap: 25px;
 
-                input {
-                    outline: 1px solid grey;
-                    height: 36px;
-                    width: 120px;
+                label {
+                    color: rgb(149, 151, 157);
+
+                    .input-container {
+
+                        input {
+                            outline: 1px solid #dadbdd;
+                            height: 36px;
+                            width: 120px;
+                            padding-left: 10px;
+                            margin-top: 4px;
+                            border-radius: 4px;
+
+                            &[type=number] {
+                                -moz-appearance: textfield;
+                            }
+
+                            &::-webkit-outer-spin-button,
+                            input::-webkit-inner-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+                            }
+                        }
+
+                        span {
+                            position: absolute;
+                            top: 13px;
+                            right: 13px;
+                        }
+                    }
                 }
             }
 
             .btns-row {
-                border-top: 1px solid gray;
+                border-top: 1px solid #dadbdd;
                 padding: 16px 24px;
+
+                .apply {
+                    background-color: $clr1;
+                    padding: 7px 12px;
+                    color: #fff;
+                    border-radius: 4px;
+                    font-weight: bold;
+                    font-size: 14px;
+                }
+
+                .clear-all {
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: rgb(149, 151, 157);
+
+                    &:hover {
+                        color: $clr1;
+                    }
+
+                    transition: color .2s;
+                }
             }
         }
     }

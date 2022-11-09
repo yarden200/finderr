@@ -16,7 +16,6 @@ async function query(filterBy) {
         var { query } = filterBy
         if (query) {
             gigsToShow = gigsToShow.filter(gig => {
-                console.log(gig.title.includes(query));
                 return gig.title.includes(query)
             })
         }
@@ -37,7 +36,6 @@ function save(gig) {
         return storageService.put(STORAGE_KEY, gig)
     } else {
         // gig.owner = userService.getLoggedinUser()
-
         //for dev
         if (!gig.seller) {
             gig.seller = { fullname: 'Michael Jordan' }
