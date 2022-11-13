@@ -16,95 +16,151 @@
             rgba(0, 0, 0, 0.17) 0px 5px 17px 0px;
     }
 
-
     .sort-bar-menu {
-        position: relative;
-        border: 1px solid #dadbdd;
-        border-radius: 4px;
-        padding: 0 6px;
-        width: fit-content;
+        gap: 20px;
         color: rgb(34, 35, 37);
-        cursor: pointer;
 
-        .menu-content {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            margin-top: 8px;
-            z-index: 2;
-            background-color: #fff;
-            border: 1px solid #dadbdd;
-            border-radius: 4px;
-            opacity: 0;
-            visibility: hidden;
-            cursor: auto;
-            color: #62646a;
+        .menu-item {
+            position: relative;
 
-            &.active {
-                opacity: 1;
-                visibility: unset;
+            .menu-title {
+                border: 1px solid #dadbdd;
+                border-radius: 4px;
+                padding: 0 6px;
+                cursor: pointer;
             }
 
-            .budget-filter {
-                padding: 12px 24px;
-                gap: 25px;
+            .menu-content {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                margin-top: 8px;
+                z-index: 2;
+                background-color: #fff;
+                border: 1px solid #dadbdd;
+                border-radius: 4px;
+                opacity: 0;
+                visibility: hidden;
+                cursor: auto;
+                color: #62646a;
 
-                label {
-                    color: rgb(149, 151, 157);
+                &.active {
+                    opacity: 1;
+                    visibility: unset;
+                }
 
-                    .input-container {
+                .budget-filter {
+                    padding: 12px 24px;
+                    gap: 25px;
+                    pointer-events: all;
 
-                        input {
-                            outline: 1px solid #dadbdd;
-                            height: 36px;
-                            width: 120px;
-                            padding-left: 10px;
-                            margin-top: 4px;
-                            border-radius: 4px;
+                    label {
+                        color: rgb(149, 151, 157);
 
-                            &[type=number] {
-                                -moz-appearance: textfield;
+                        .input-container {
+
+                            input {
+                                outline: 1px solid #dadbdd;
+                                height: 36px;
+                                width: 120px;
+                                padding-left: 10px;
+                                margin-top: 4px;
+                                border-radius: 4px;
+
+                                &[type=number] {
+                                    -moz-appearance: textfield;
+                                }
+
+                                &::-webkit-outer-spin-button,
+                                input::-webkit-inner-spin-button {
+                                    -webkit-appearance: none;
+                                    margin: 0;
+                                }
                             }
 
-                            &::-webkit-outer-spin-button,
-                            input::-webkit-inner-spin-button {
-                                -webkit-appearance: none;
-                                margin: 0;
+                            span {
+                                position: absolute;
+                                top: 13px;
+                                right: 13px;
                             }
-                        }
-
-                        span {
-                            position: absolute;
-                            top: 13px;
-                            right: 13px;
                         }
                     }
                 }
-            }
 
-            .btns-row {
-                border-top: 1px solid #dadbdd;
-                padding: 16px 24px;
+                .delivery-time-filter {
+                    padding: 12px 24px;
 
-                .apply {
-                    background-color: $clr1;
-                    padding: 7px 12px;
-                    color: #fff;
-                    border-radius: 4px;
-                    font-weight: bold;
-                    font-size: 14px;
+                    .radio-list {
+                        .radio-item-wrapper {
+                            min-width: 214px;
+
+                            label {
+                                padding: 6px 0;
+                                margin: 4px 0;
+                                font-weight: 600;
+                                color: #404145;
+                                cursor: pointer;
+
+                                input[type='radio'] {
+                                    display: none;
+                                }
+
+                                span {
+                                    position: relative;
+                                    display: inline-block;
+                                    width: 18px;
+                                    height: 18px;
+                                    border: 1px solid #b5b6ba;
+                                    border-radius: 50%;
+                                    margin-right: 8px;
+
+                                    &::after {
+                                        position: absolute;
+                                        left: 50%;
+                                        top: 50%;
+                                        transform: translate(-50%, -50%) scale(0);
+                                        height: 8px;
+                                        width: 8px;
+                                        background: #95979d;
+                                        border-radius: 50%;
+                                        content: "";
+                                    }
+
+                                    &.checked {
+                                        &::after {
+                                            transform: translate(-50%, -50%) scale(1);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
-                .clear-all {
-                    font-weight: bold;
-                    font-size: 14px;
-                    color: rgb(149, 151, 157);
+                .btns-row {
+                    border-top: 1px solid #dadbdd;
+                    padding: 16px 24px;
 
-                    &:hover {
-                        color: $clr1;
+                    .apply {
+                        background-color: $clr1;
+                        padding: 7px 12px;
+                        color: #fff;
+                        border-radius: 4px;
+                        font-weight: bold;
+                        font-size: 14px;
                     }
 
-                    transition: color .2s;
+                    .clear-all {
+                        font-weight: bold;
+                        font-size: 14px;
+                        color: rgb(149, 151, 157);
+
+                        &:hover {
+                            color: $clr1;
+                        }
+
+                        transition: color .2s;
+                    }
                 }
             }
         }

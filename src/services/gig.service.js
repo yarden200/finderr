@@ -13,15 +13,17 @@ async function query(filterBy) {
     let gigsToShow = await storageService.query(STORAGE_KEY)
     // console.log('service filterBy:', filterBy);
     if (filterBy) {
-        var { query } = filterBy
+        var { query, minPrice, maxPrice } = filterBy
+        minPrice = minPrice || 0
+        maxPrice = maxPrice || Infinity
         if (query) {
-            gigsToShow = gigsToShow.filter(gig => {
-                return gig.title.includes(query)
-            })
+            gigsToShow = gigsToShow.filter(gig => gig.title.toLowerCase().includes(query.toLowerCase()))
         }
+        gigsToShow = gigsToShow.filter(gig => gig.price <= maxPrice && gig.price >= minPrice)
     }
     return gigsToShow
 }
+
 
 function getById(gigId) {
     return storageService.get(STORAGE_KEY, gigId)
