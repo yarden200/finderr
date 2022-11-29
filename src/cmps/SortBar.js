@@ -23,7 +23,7 @@ export const SortBar = () => {
     }, [])
 
     useEffect(() => {
-        console.log('filterBy changed', filterBy);
+        console.log('filterBy changed', filterBy, typeof filterBy.deliveryTime);
     }, [filterBy])
 
 
@@ -46,7 +46,7 @@ export const SortBar = () => {
     }
 
     const onChange = ({ target }) => {
-        console.log('onChange:', target);
+        console.log('onChange:', target.value);
         var field = target.name
         const value = (target.type === 'number') ? +target.value : target.value;
         setFilterBy(filterBy => ({ ...filterBy, [field]: value }))
@@ -155,20 +155,22 @@ export const SortBar = () => {
                                     </div>
                                     <div className='radio-item-wrapper'>
                                         <label className='flex align-center'>
-                                            <input type='radio' name='deliveryTime' value={2} onChange={(e) => { onChange(e) }}></input>
-                                            <span></span>
+                                            <input type='radio' name='deliveryTime' value={'2'} onChange={(e) => { onChange(e) }}></input>
+                                            <span className={`${filterBy.deliveryTime === '2' && 'checked'}`}></span>
                                             Up to 3 days
                                         </label>
                                     </div>
                                     <div className='radio-item-wrapper'>
                                         <label className='flex align-center'>
-                                            <span></span>
+                                            <input type='radio' name='deliveryTime' value={'3'} onChange={(e) => { onChange(e) }}></input>
+                                            <span className={`${filterBy.deliveryTime === '3' && 'checked'}`}></span>
                                             Up to 7 days
                                         </label>
                                     </div>
                                     <div className='radio-item-wrapper'>
                                         <label className='flex align-center'>
-                                            <span></span>
+                                            <input type='radio' name='deliveryTime' value={'4'} onChange={(e) => { onChange(e) }}></input>
+                                            <span className={`${filterBy.deliveryTime === '4' && 'checked'}`}></span>
                                             Anytime
                                         </label>
                                     </div>
